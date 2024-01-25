@@ -1,14 +1,22 @@
 import { Divider, Box, Button, Link, TextField, Typography } from '@mui/material'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
+import useSWRMutation from 'swr/mutation'
+
+import { signUpUser } from '../api/signup'
 
 export default function SignUp() {
+    const redirect = useNavigate()
+    const { trigger, isMutating } = useSWRMutation('/register', signUpUser)
+
     const handleSubmit = event => {
         event.preventDefault()
         const data = new FormData(event.currentTarget)
-        console.log({
+        trigger({
+            name: data.get('name'),
             email: data.get('email'),
             password: data.get('password'),
-        })
+            password_confirmation: data.get('password_confirmation'),
+        }).then(signedUp => (signedUp ? redirect('/') : null))
     }
 
     return (
@@ -69,8 +77,8 @@ export default function SignUp() {
                     id='password_confirmation'
                     autoComplete='current-password'
                 />
-                <Button type='submit' fullWidth variant='outlined' sx={{ mt: 3, mb: 2 }}>
-                    Sign Up
+                <Button type='submit' fullWidth variant='outlined' sx={{ mt: 3, mb: 2 }} disabled={isMutating}>
+                    {isMutating ? 'Signing up.....' : 'Sign Up'}
                 </Button>
                 <NavLink to={'/log-in'}>
                     <Link href='#' component='span' variant='body2' sx={{ textAlign: 'center', display: 'block' }}>

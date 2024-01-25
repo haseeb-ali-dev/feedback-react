@@ -56,7 +56,7 @@ export default function Login() {
                     autoComplete='current-password'
                 />
                 <Button type='submit' fullWidth variant='outlined' sx={{ mt: 3, mb: 2 }} disabled={isMutating}>
-                    Log In
+                    {isMutating ? 'Logging in.....' : 'Log In'}
                 </Button>
                 <NavLink to={'/sign-up'}>
                     <Link href='#' variant='body2' component='span' sx={{ textAlign: 'center', display: 'block' }}>

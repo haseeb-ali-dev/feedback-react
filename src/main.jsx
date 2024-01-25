@@ -9,12 +9,13 @@ import { Toaster } from 'react-hot-toast'
 import App from './App.jsx'
 import './index.css'
 import router from './router'
+import { toasterConfig } from './utils/constants.js'
 
 const defaultTheme = createTheme()
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
-        <Toaster />
+        <Toaster toastOptions={toasterConfig} />
         <ThemeProvider theme={defaultTheme}>
             <Container component='main' maxWidth='xs'>
                 <CssBaseline />
