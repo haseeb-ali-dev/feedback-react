@@ -2,6 +2,7 @@ import { Divider, Box, Button, Link, TextField, Typography } from '@mui/material
 import { NavLink, useNavigate } from 'react-router-dom'
 import useSWRMutation from 'swr/mutation'
 
+import { EmailField, PasswordField } from '../components'
 import { loginUser } from '../api/login'
 
 export default function Login() {
@@ -33,28 +34,8 @@ export default function Login() {
             </Typography>
             <Divider variant='fullWidth' />
             <Box component='form' onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
-                <TextField
-                    variant='standard'
-                    margin='normal'
-                    required
-                    fullWidth
-                    id='email'
-                    label='Email Address'
-                    name='email'
-                    autoComplete='email'
-                    autoFocus
-                />
-                <TextField
-                    variant='standard'
-                    margin='normal'
-                    required
-                    fullWidth
-                    name='password'
-                    label='Password'
-                    type='password'
-                    id='password'
-                    autoComplete='current-password'
-                />
+                <EmailField />
+                <PasswordField />
                 <Button type='submit' fullWidth variant='outlined' sx={{ mt: 3, mb: 2 }} disabled={isMutating}>
                     {isMutating ? 'Logging in.....' : 'Log In'}
                 </Button>

@@ -2,6 +2,7 @@ import { Divider, Box, Button, Link, TextField, Typography } from '@mui/material
 import { NavLink, useNavigate } from 'react-router-dom'
 import useSWRMutation from 'swr/mutation'
 
+import { EmailField, PasswordField } from '../components'
 import { signUpUser } from '../api/signup'
 
 export default function SignUp() {
@@ -45,38 +46,8 @@ export default function SignUp() {
                     name='name'
                     autoFocus
                 />
-                <TextField
-                    variant='standard'
-                    margin='normal'
-                    required
-                    fullWidth
-                    id='email'
-                    label='Email Address'
-                    name='email'
-                    autoComplete='email'
-                />
-                <TextField
-                    variant='standard'
-                    margin='normal'
-                    required
-                    fullWidth
-                    name='password'
-                    label='Password'
-                    type='password'
-                    id='password'
-                    autoComplete='current-password'
-                />
-                <TextField
-                    variant='standard'
-                    margin='normal'
-                    required
-                    fullWidth
-                    name='password_confirmation'
-                    label='Confirmed Password'
-                    type='password'
-                    id='password_confirmation'
-                    autoComplete='current-password'
-                />
+                <EmailField focus={false} />
+                <PasswordField confirmed={true} />
                 <Button type='submit' fullWidth variant='outlined' sx={{ mt: 3, mb: 2 }} disabled={isMutating}>
                     {isMutating ? 'Signing up.....' : 'Sign Up'}
                 </Button>
