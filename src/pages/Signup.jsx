@@ -1,20 +1,14 @@
 import { Divider, Box, Button, Link, TextField, Typography } from '@mui/material'
-import { NavLink, useNavigate } from 'react-router-dom'
-import useSWRMutation from 'swr/mutation'
+import { NavLink } from 'react-router-dom'
 
-import { loginUser } from '../api/login'
-
-export default function Login() {
-    const redirect = useNavigate()
-    const { trigger, isMutating } = useSWRMutation('/login', loginUser)
-
+export default function SignUp() {
     const handleSubmit = event => {
         event.preventDefault()
         const data = new FormData(event.currentTarget)
-        trigger({
+        console.log({
             email: data.get('email'),
             password: data.get('password'),
-        }).then(loggedIn => (loggedIn ? redirect('/') : null))
+        })
     }
 
     return (
@@ -38,11 +32,20 @@ export default function Login() {
                     margin='normal'
                     required
                     fullWidth
+                    id='name'
+                    label='Your Name'
+                    name='name'
+                    autoFocus
+                />
+                <TextField
+                    variant='standard'
+                    margin='normal'
+                    required
+                    fullWidth
                     id='email'
                     label='Email Address'
                     name='email'
                     autoComplete='email'
-                    autoFocus
                 />
                 <TextField
                     variant='standard'
@@ -55,12 +58,23 @@ export default function Login() {
                     id='password'
                     autoComplete='current-password'
                 />
-                <Button type='submit' fullWidth variant='outlined' sx={{ mt: 3, mb: 2 }} disabled={isMutating}>
-                    Log In
+                <TextField
+                    variant='standard'
+                    margin='normal'
+                    required
+                    fullWidth
+                    name='password_confirmation'
+                    label='Confirmed Password'
+                    type='password'
+                    id='password_confirmation'
+                    autoComplete='current-password'
+                />
+                <Button type='submit' fullWidth variant='outlined' sx={{ mt: 3, mb: 2 }}>
+                    Sign Up
                 </Button>
-                <NavLink to={'/sign-up'}>
-                    <Link href='#' variant='body2' component='span' sx={{ textAlign: 'center', display: 'block' }}>
-                        {"Don't have an account? Sign Up"}
+                <NavLink to={'/log-in'}>
+                    <Link href='#' component='span' variant='body2' sx={{ textAlign: 'center', display: 'block' }}>
+                        {'Already have an account? Log In'}
                     </Link>
                 </NavLink>
             </Box>

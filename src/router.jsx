@@ -3,7 +3,7 @@ import { createBrowserRouter } from 'react-router-dom'
 
 import { Protected } from './components'
 
-import { Login } from './pages'
+import { Login, Signup } from './pages'
 import App from './App'
 
 import { getAccessToken } from './utils/helpers'
@@ -18,8 +18,12 @@ export const routes = [
 
 export const authRoutes = [
     {
-        path: 'login',
+        path: 'log-in',
         element: getAccessToken() ? <Navigate to='/' /> : <Login />,
+    },
+    {
+        path: 'sign-up',
+        element: getAccessToken() ? <Navigate to='/' /> : <Signup />,
     },
     {
         path: '*',

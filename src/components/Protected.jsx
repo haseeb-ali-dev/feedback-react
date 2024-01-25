@@ -6,7 +6,7 @@ import { getAccessToken } from '../utils/helpers'
 const Protected = ({ children }) => {
     const token = getAccessToken()
 
-    return token ? children : <Navigate to='/login' />
+    return token ? children : <Navigate to='/log-in' />
 }
 
 export default Protected
