@@ -1,5 +1,7 @@
+import { Feedbacks } from './pages'
+
 function App() {
-    return <h4>Dashbord</h4>
+    return <Feedbacks />
 }
 
 export default App
