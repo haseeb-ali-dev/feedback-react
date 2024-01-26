@@ -32,11 +32,11 @@ export default function Feedbacks() {
                 >
                     <Switcher />
                     <ButtonGroup variant='outlined' aria-label='outlined button group'>
-                        <Button disabled={!data?.next} onClick={() => setPage(page + 1)}>
-                            Next
-                        </Button>
                         <Button disabled={!data?.prev} onClick={() => setPage(page + 1)}>
                             Previous
+                        </Button>
+                        <Button disabled={!data?.next} onClick={() => setPage(page + 1)}>
+                            Next
                         </Button>
                     </ButtonGroup>
                 </Box>
