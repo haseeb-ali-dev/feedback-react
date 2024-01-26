@@ -1,8 +1,36 @@
-# React + Vite
+# Feedback App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Frontend for gathering and managing user feedback
 
-Currently, two official plugins are available:
+### Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- User registration and login
+- Create, view, and upvote/downvote feedback items
+- Add comments to feedback
+- Create and manage feedback categories
+
+### Tech Stack
+
+- React
+- Yarn
+- Vite
+- Material UI
+
+### Getting Started
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/haseeb-ali-dev/feedback-react.git
+
+2. ### Install Dependencies:
+
+    ```bash
+    yarn install
+
+3. Start the Development Server:
+
+     ```bash
+    yarn run dev
+
+
