@@ -2,7 +2,7 @@ import { Box, List, TextField } from '@mui/material'
 import useSWR from 'swr'
 
 import { fetchFeedbacks } from '../api/feedback'
-import { Layout, FeedbackItem, FeedbackForm } from '../components'
+import { Layout, FeedbackItem, FeedbackForm, Switcher } from '../components'
 
 export default function Feedbacks() {
     const { data, isLoading } = useSWR('/feedback', fetchFeedbacks)
@@ -16,16 +16,17 @@ export default function Feedbacks() {
                     height: '85vh',
                     mt: { sm: 0, md: 8 },
                     mr: { sm: 0, md: 4 },
-                    p: 3,
+                    px: 2,
                     borderRadius: 4,
                 }}
             >
+                <Switcher />
                 <List
                     sx={{
                         width: '100%',
                         bgcolor: 'background.paper',
                         overflowY: 'auto',
-                        maxHeight: '69vh',
+                        maxHeight: '64vh',
                         '&::-webkit-scrollbar': {
                             width: '0.5em',
                         },
