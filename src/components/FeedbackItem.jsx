@@ -27,7 +27,7 @@ const FeedbackItem = ({ row, divider = true }) => {
                     </Grid>
                 </Grid>
             </ListItem>
-            {divider && <Divider variant='middle' sx={{ my: 1.5 }} />}
+            {divider && <Divider variant='middle' />}
         </>
     )
 }
