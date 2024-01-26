@@ -32,7 +32,7 @@ const FeedbackItem = ({ row, divider = true }) => {
                             </Typography>
                             <NavLink to={`/comment/${row?.id}`} style={{ textDecoration: 'none' }}>
                                 <Link variant='subtitle2' sx={{ textAlign: 'end', display: 'block' }}>
-                                    See comments
+                                    See comments ({row?.comments_count})
                                 </Link>
                             </NavLink>
                         </Box>
