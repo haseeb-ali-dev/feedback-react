@@ -15,7 +15,7 @@ export default function Login() {
         trigger({
             email: data.get('email'),
             password: data.get('password'),
-        }).then(loggedIn => (loggedIn ? redirect('/') : null))
+        }).then(loggedIn => (loggedIn ? window.location.reload() : null))
     }
 
     return (

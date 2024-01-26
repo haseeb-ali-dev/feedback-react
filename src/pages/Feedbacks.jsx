@@ -14,7 +14,7 @@ export default function Feedbacks() {
                     backgroundColor: '#ebebeb8c',
                     borderColor: 'grey',
                     height: '85vh',
-                    mt: { sm: 0, md: 8 },
+                    mt: { sm: 0, md: 2 },
                     mr: { sm: 0, md: 4 },
                     px: 2,
                     borderRadius: 4,

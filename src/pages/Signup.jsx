@@ -17,7 +17,7 @@ export default function SignUp() {
             email: data.get('email'),
             password: data.get('password'),
             password_confirmation: data.get('password_confirmation'),
-        }).then(signedUp => (signedUp ? redirect('/') : null))
+        }).then(signedUp => (signedUp ? window.location.reload() : null))
     }
 
     return (
