@@ -22,7 +22,14 @@ export default function Feedbacks() {
                     borderRadius: 4,
                 }}
             >
-                <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <Box
+                    sx={{
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        alignItems: 'center',
+                        flexDirection: { xs: 'column', sm: 'column', md: 'row' },
+                    }}
+                >
                     <Switcher />
                     <ButtonGroup variant='outlined' aria-label='outlined button group'>
                         <Button disabled={!data?.next} onClick={() => setPage(page + 1)}>
