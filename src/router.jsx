@@ -3,7 +3,7 @@ import { createBrowserRouter } from 'react-router-dom'
 
 import { Protected } from './components'
 
-import { Login, Signup, Categories } from './pages'
+import { Login, Signup, Categories, Comments } from './pages'
 import App from './App'
 
 import { getAccessToken } from './utils/helpers'
@@ -17,6 +17,11 @@ export const routes = [
     {
         path: '/category',
         component: <Categories />,
+        protect: true,
+    },
+    {
+        path: '/comment/:feedbackId',
+        component: <Comments />,
         protect: true,
     },
 ]

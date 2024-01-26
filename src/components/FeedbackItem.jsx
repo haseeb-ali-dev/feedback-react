@@ -1,5 +1,6 @@
 import { memo } from 'react'
-import { ListItem, ListItemAvatar, Typography, Avatar, Divider, Box, Grid } from '@mui/material'
+import { ListItem, ListItemAvatar, Typography, Avatar, Divider, Box, Grid, Link } from '@mui/material'
+import { NavLink } from 'react-router-dom'
 
 const FeedbackItem = ({ row, divider = true }) => {
     return (
@@ -29,6 +30,11 @@ const FeedbackItem = ({ row, divider = true }) => {
                             <Typography variant='subtitle2' color={'slategray'}>
                                 {row?.description ?? '--'}
                             </Typography>
+                            <NavLink to={`/comment/${row?.id}`} style={{ textDecoration: 'none' }}>
+                                <Link variant='subtitle2' sx={{ textAlign: 'end', display: 'block' }}>
+                                    See comments
+                                </Link>
+                            </NavLink>
                         </Box>
                     </Grid>
                 </Grid>

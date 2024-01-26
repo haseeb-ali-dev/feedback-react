@@ -8,6 +8,8 @@ import FeedbackForm from './FeedbackForm'
 import CategoryDropdown from './CategoryDropdown'
 import Switcher from './Switcher'
 import CategoryForm from './CategoryForm'
+import CommentItem from './CommentItem'
+import CommentBox from './CommentBox'
 
 export {
     Protected,
@@ -20,4 +22,6 @@ export {
     CategoryDropdown,
     Switcher,
     CategoryForm,
+    CommentItem,
+    CommentBox,
 }
