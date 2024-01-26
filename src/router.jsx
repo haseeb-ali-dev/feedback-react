@@ -3,7 +3,7 @@ import { createBrowserRouter } from 'react-router-dom'
 
 import { Protected } from './components'
 
-import { Login, Signup } from './pages'
+import { Login, Signup, Categories } from './pages'
 import App from './App'
 
 import { getAccessToken } from './utils/helpers'
@@ -12,6 +12,11 @@ export const routes = [
     {
         path: '/',
         component: <App />,
+        protect: true,
+    },
+    {
+        path: '/category',
+        component: <Categories />,
         protect: true,
     },
 ]

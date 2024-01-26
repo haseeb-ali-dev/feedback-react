@@ -19,7 +19,7 @@ export const postFeedback = (url, { arg }) => {
             return true
         })
         .catch(({ response }) => {
-            let alert = response?.data?.message || 'Login failed!'
+            let alert = response?.data?.message || 'Failed to post!'
             const errors = response?.data?.errors
             if (errors) {
                 Object.keys(errors).forEach((key, index) => {

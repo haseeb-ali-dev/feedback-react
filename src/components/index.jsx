@@ -7,6 +7,7 @@ import FeedbackItem from './FeedbackItem'
 import FeedbackForm from './FeedbackForm'
 import CategoryDropdown from './CategoryDropdown'
 import Switcher from './Switcher'
+import CategoryForm from './CategoryForm'
 
 export {
     Protected,
@@ -18,4 +19,5 @@ export {
     FeedbackForm,
     CategoryDropdown,
     Switcher,
+    CategoryForm,
 }

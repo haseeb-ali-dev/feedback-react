@@ -19,9 +19,15 @@ const FeedbackItem = ({ row, divider = true }) => {
                     </Grid>
                     <Grid item xs={12} sm={12} md={8} lg={10}>
                         <Box sx={{ display: 'flex', justifyContent: 'space-between', flexDirection: 'column' }}>
-                            <Typography variant='span'>{row?.title}</Typography>
+                            <Typography variant='span'>
+                                {row?.title}
+                                <Typography
+                                    color={'GrayText'}
+                                    display={'inline'}
+                                >{` - ${row?.category?.title}`}</Typography>
+                            </Typography>
                             <Typography variant='subtitle2' color={'slategray'}>
-                                {row?.description}
+                                {row?.description ?? '--'}
                             </Typography>
                         </Box>
                     </Grid>
