@@ -7,7 +7,7 @@ export const fetchFeedbacks = url =>
         return {
             feedbacks: data?.result?.data,
             next: data?.result?.next_page_url,
-            prev: data?.result?.previous_page_url,
+            prev: data?.result?.prev_page_url,
         }
     })
 

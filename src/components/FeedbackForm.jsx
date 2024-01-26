@@ -5,7 +5,7 @@ import useSWRMutation from 'swr/mutation'
 import { postFeedback } from '../api/feedback'
 import { CategoryDropdown } from '.'
 
-const FeedbackForm = () => {
+const FeedbackForm = ({ mutate }) => {
     const [category, setCategory] = useState('')
     const { trigger, isMutating } = useSWRMutation('/feedback', postFeedback)
 
@@ -18,7 +18,12 @@ const FeedbackForm = () => {
             description: data.get('description'),
             title: data.get('title'),
             category_id: category,
-        }).then(created => (created ? event.target.reset() : null))
+        }).then(created => {
+            if (created) {
+                event.target.reset()
+                mutate()
+            }
+        })
     }
     return (
         <Box

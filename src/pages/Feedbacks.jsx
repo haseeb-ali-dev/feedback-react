@@ -1,11 +1,13 @@
-import { Box, List, TextField } from '@mui/material'
+import { Box, ButtonGroup, List, Button } from '@mui/material'
 import useSWR from 'swr'
 
 import { fetchFeedbacks } from '../api/feedback'
 import { Layout, FeedbackItem, FeedbackForm, Switcher } from '../components'
+import { useState } from 'react'
 
 export default function Feedbacks() {
-    const { data, isLoading } = useSWR('/feedback', fetchFeedbacks)
+    const [page, setPage] = useState(1)
+    const { data, isLoading, mutate } = useSWR(`/feedback?page=${page}`, fetchFeedbacks)
 
     return (
         <Layout name={'Feedbacks'}>
@@ -20,7 +22,17 @@ export default function Feedbacks() {
                     borderRadius: 4,
                 }}
             >
-                <Switcher />
+                <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <Switcher />
+                    <ButtonGroup variant='outlined' aria-label='outlined button group'>
+                        <Button disabled={!data?.next} onClick={() => setPage(page + 1)}>
+                            Next
+                        </Button>
+                        <Button disabled={!data?.prev} onClick={() => setPage(page + 1)}>
+                            Previous
+                        </Button>
+                    </ButtonGroup>
+                </Box>
                 <List
                     sx={{
                         width: '100%',
@@ -44,7 +56,7 @@ export default function Feedbacks() {
                         <FeedbackItem key={index} row={feedback} divider={data?.feedbacks?.length - 1 !== index} />
                     ))}
                 </List>
-                <FeedbackForm />
+                <FeedbackForm mutate={mutate} />
             </Box>
         </Layout>
     )
